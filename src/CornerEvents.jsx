@@ -1,5 +1,5 @@
 import React from "react";
-
+import {getFullScreenBackground, getTimePadding} from "./Functions.js"
 const CornerEvents = ({props}) => {
     if(props.isNow === true){
         return(
@@ -9,8 +9,10 @@ const CornerEvents = ({props}) => {
         )
     }
     return (
-        <div className="w-96">
-            <h1 className="text-3xl font-bold">{props.name}</h1>
+        <div className="w-fit mx-2">
+            <h1 className="text-[1.75vw] font-bold">{props.name}</h1>
+            <h2 className="text-[1.4vw] ">{props.startTime.toLocaleDateString('fi-FI').replaceAll('.','_')}</h2>
+            <h3 className="text-[1.4vw] font-sans">{getTimePadding(props.startTime)} - {getTimePadding(props.endTime)}</h3>
         </div>
     )
 

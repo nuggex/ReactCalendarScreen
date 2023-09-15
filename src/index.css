@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'Neon';
+    src: local('Neon'), url(../fonts/Neon.ttf) format('truetype');
+}
