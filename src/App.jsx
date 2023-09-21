@@ -1,8 +1,6 @@
 import Calendar from './Calendar';
 function App() {
   return (
-
-
     <Calendar />
   );
 }

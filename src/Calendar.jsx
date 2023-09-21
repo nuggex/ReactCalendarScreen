@@ -49,7 +49,7 @@ const Calendar = () => {
                             let isNow = false;
                             let isToday = false;
                             if (endTime.getTime() > nowTime && startTime.getTime() < nowTime) isNow = true;
-                            if (startTime.getDate() === new Date().getDate()) {
+                            if ((startTime.getDate() === new Date().getDate()) || (startTime.getTime() < new Date().getTime() && endTime.getTime() > new Date().getTime() )) {
                                 isToday = true;
                             }
                             if (endTime > nowTime) {
@@ -119,7 +119,6 @@ const Calendar = () => {
         return a.startTime - b.startTime;
     };
 
-
     let today = [];
     let notToday = [];
 
@@ -144,13 +143,13 @@ const Calendar = () => {
             )
         } else {
             return (
-                <div className="flex items-center w-screen align-middle h-screen bg-background saturate-100 ">
+                <div className="flex items-center w-screen align-middle h-screen bg-background saturate-100">
                     {today &&
-                        <div className="container w-fit h-fit mx-auto bg-gradient-to-b from-teal-600 to-[#00F1FF] rounded-xl p-8 m-10 saturate-100">
+                        <div className="container w-fit h-fit mx-auto bg-gradient-to-b from-teal-600 to-[#00F1FF] drop-shadow-2xl rounded-xl p-8 m-10 saturate-100">
                             <h1 className="text-[3vw] font-extrabold text-center">Today @ Cornern</h1>
                             {today.length === 0 && (
-                             <p className="w-fit h-fit mx-auto text-[2vw]">No events today</p>
-                                )
+                                <p className="w-fit h-fit mx-auto text-[2vw]">No events today</p>
+                            )
                             }
                             {today.map((cornerEvent, i) => (
                                 <div key={i} className={getItemStyling(cornerEvent)}>
@@ -180,13 +179,9 @@ const Calendar = () => {
                         }
                     </div>
                 </div>
-
-
             )
         }
     }
-
-
 }
 
 export default Calendar;

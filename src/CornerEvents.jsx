@@ -1,5 +1,5 @@
 import React from "react";
-import {getFullScreenBackground, getTimePadding} from "./Functions.js"
+import {getTimePadding} from "./Functions.js"
 const CornerEvents = ({props}) => {
     if(props.isNow === true){
         return(
